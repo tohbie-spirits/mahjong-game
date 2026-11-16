@@ -1,0 +1,200 @@
+/* ============================================================
+   STATISTICS-SCREEN.CSS
+   Task 69: styling for StatisticsScreen.js — the full-screen
+   panel showing the player's lifetime statistics, reached from
+   the Main Menu.  Shares the same layout vocabulary and token
+   set as end-game-screen.css (and all other standalone screen
+   stylesheets): full-height flex column, card sections, action
+   buttons.
+   ============================================================ */
+
+/* ---------- Full-screen shell ---------- */
+
+.statistics-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100dvh;
+  padding: 2.5rem 1.5rem 3rem;
+  gap: 2rem;
+  background: var(--color-bg);
+}
+
+/* ---------- Header ---------- */
+
+.statistics-screen-header {
+  text-align: center;
+}
+
+.statistics-screen-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--ls-tight);
+  line-height: 1.1;
+}
+
+/* ---------- Stat sections ---------- */
+
+.statistics-screen-section {
+  width: min(36rem, calc(100vw - 3rem));
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statistics-screen-section-heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* Key/value grid — description list styled as a two-column table */
+
+.statistics-screen-grid {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 0;
+}
+
+/* Each dt/dd pair shares a row via CSS subgrid-compatible approach.
+   Because dt and dd are siblings in the same grid container, they
+   are placed automatically into the two columns. */
+
+.statistics-screen-label,
+.statistics-screen-value {
+  padding: 0.7rem 1.1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Remove last-row divider (last two siblings = last dt + last dd) */
+.statistics-screen-label:last-of-type,
+.statistics-screen-value:last-of-type {
+  border-bottom: none;
+}
+
+.statistics-screen-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary);
+  /* Reset dl default margin */
+  margin: 0;
+}
+
+.statistics-screen-value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+  text-align: right;
+  /* Reset dl default margin */
+  margin: 0;
+}
+
+/* ---------- Action buttons ---------- */
+
+.statistics-screen-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: min(36rem, calc(100vw - 3rem));
+  /* Push actions toward bottom for shorter screens */
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.statistics-screen-btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.6rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+/* Primary (Back) */
+.statistics-screen-btn--primary {
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: var(--color-bg);
+}
+
+.statistics-screen-btn--primary:hover,
+.statistics-screen-btn--primary:focus-visible {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  outline: none;
+}
+
+/* Secondary (Leaderboard link, Task 72) — accent outline */
+.statistics-screen-btn--secondary {
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.statistics-screen-btn--secondary:hover,
+.statistics-screen-btn--secondary:focus-visible {
+  background: var(--color-surface-hover, rgba(255, 255, 255, 0.04));
+  outline: none;
+}
+
+/* Danger (Reset Statistics) */
+.statistics-screen-btn--danger {
+  background: transparent;
+  border: 1px solid var(--color-border-strong, var(--color-border));
+  color: var(--color-text-muted);
+}
+
+.statistics-screen-btn--danger:hover,
+.statistics-screen-btn--danger:focus-visible {
+  background: var(--color-surface-hover, rgba(255, 255, 255, 0.04));
+  color: var(--color-text-secondary);
+  border-color: var(--color-text-muted);
+  outline: none;
+}
+
+/* Confirmation state — danger button after first click */
+.statistics-screen-btn--danger.statistics-screen-btn--confirm {
+  border-color: var(--color-warn, #c65b4e);
+  color: var(--color-warn, #c65b4e);
+}
+
+.statistics-screen-btn--danger.statistics-screen-btn--confirm:hover,
+.statistics-screen-btn--danger.statistics-screen-btn--confirm:focus-visible {
+  background: rgba(198, 91, 78, 0.1);
+  outline: none;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 30rem) {
+  .statistics-screen {
+    padding: 2rem 1rem 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .statistics-screen-title {
+    font-size: var(--fs-2xl);
+  }
+
+  .statistics-screen-label,
+  .statistics-screen-value {
+    padding: 0.6rem 0.9rem;
+  }
+}

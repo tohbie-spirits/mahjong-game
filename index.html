@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="A premium single-player Mahjong game supporting Riichi, Hong Kong, and Chinese Official rulesets, playable entirely offline in your browser." />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0f1216" />
+
+  <title>Mahjong</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 60 80%27%3E%3Crect x=%272%27 y=%272%27 width=%2756%27 height=%2776%27 rx=%278%27 fill=%27%23f4ede0%27/%3E%3Ctext x=%2730%27 y=%2754%27 font-size=%2740%27 text-anchor=%27middle%27 fill=%27%23b3262d%27%3E%E4%B8%AD%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts are loaded locally in a later task; no external font requests. -->
+
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/theme-dark.css" />
+  <link rel="stylesheet" href="styles/theme-light.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/tile.css" />
+  <link rel="stylesheet" href="styles/components/hand.css" />
+  <link rel="stylesheet" href="styles/components/discard.css" />
+  <link rel="stylesheet" href="styles/components/wall-indicator.css" />
+  <link rel="stylesheet" href="styles/components/table-info.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+  <link rel="stylesheet" href="styles/components/turn-indicator.css" />
+  <link rel="stylesheet" href="styles/components/claim-prompt.css" />
+  <link rel="stylesheet" href="styles/components/main-menu.css" />
+  <link rel="stylesheet" href="styles/components/rule-selection.css" />
+  <link rel="stylesheet" href="styles/components/player-count-selection.css" />
+  <link rel="stylesheet" href="styles/components/difficulty-selection.css" />
+  <link rel="stylesheet" href="styles/components/game-screen.css" />
+  <link rel="stylesheet" href="styles/components/score-screen.css" />
+  <link rel="stylesheet" href="styles/components/end-game-screen.css" />
+  <link rel="stylesheet" href="styles/components/winning-hand.css" />
+  <link rel="stylesheet" href="styles/components/win-reveal.css" />
+  <link rel="stylesheet" href="styles/components/settings-menu.css" />
+  <link rel="stylesheet" href="styles/components/pause-menu.css" />
+  <link rel="stylesheet" href="styles/components/statistics-screen.css" />
+  <link rel="stylesheet" href="styles/components/leaderboard-screen.css" />
+  <link rel="stylesheet" href="styles/components/tutorial.css" />
+  <link rel="stylesheet" href="styles/components/rule-reference.css" />
+  <link rel="stylesheet" href="styles/components/hints.css" />
+  <link rel="stylesheet" href="styles/components/app-toolbar.css" />
+  <link rel="stylesheet" href="styles/interactions.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+</head>
+<body data-theme="dark">
+
+  <!-- Skip link for keyboard/screen-reader users; target added once the main app region exists. -->
+  <a class="skip-link" href="#app-root">Skip to game</a>
+
+  <!-- Root mount point. All screens (Main Menu, Game Screen, etc.) are rendered into this
+       container by the UI layer (src/ui/) starting in Task 52 onward. Nothing is rendered
+       here directly by index.html itself. -->
+  <div id="app-root" role="application" aria-label="Mahjong"></div>
+
+  <!-- Tasks 110–111: Sound / Fullscreen controls, on every screen (outside #app-root so screen changes keep them). -->
+  <div id="app-toolbar"></div>
+
+  <!-- Shown only if the app fails to boot (e.g. JavaScript disabled). Real boot-failure
+       handling is wired up in main.js; this is the no-JS fallback. -->
+  <noscript>
+    <div class="noscript-notice">
+      <p>Mahjong requires JavaScript to run. Please enable JavaScript in your browser settings and reload this page.</p>
+    </div>
+  </noscript>
+
+  <!-- Single module entry point. Everything else is imported from here. -->
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

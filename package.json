@@ -1,0 +1,12 @@
+{
+  "name": "mahjong-game",
+  "version": "0.0.1-dev",
+  "private": true,
+  "description": "Offline browser Mahjong — Hong Kong, Riichi and Chinese Official rulesets.",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run-all.mjs",
+    "serve": "python3 -m http.server 8000",
+    "bench": "node tools/ai-benchmark.mjs"
+  }
+}

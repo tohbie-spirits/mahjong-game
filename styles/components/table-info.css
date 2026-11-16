@@ -1,0 +1,23 @@
+/* Task 102 — ruleset-specific table facts (dora, riichi sticks, honba, flowers). */
+.table-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted, #b9b2a3);
+  text-align: center;
+}
+.table-info[hidden] { display: none; }
+.table-info-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; }
+.table-info-label { font-weight: 600; letter-spacing: 0.02em; }
+.table-info-tiles { display: inline-flex; gap: 2px; }
+.table-info-row--riichi { color: var(--color-accent, #e0b84f); font-weight: 600; }
+.table-info-flowers { display: inline-flex; align-items: center; gap: 2px; }
+.table-info-flowers-name { margin-right: 2px; }
+.table-info .tile { transform: scale(0.85); transform-origin: center; }
+
+/* A tile that may not be discarded right now (riichi lock, kuikae). */
+.hand-concealed .tile--locked { opacity: 0.45; filter: grayscale(0.6); cursor: not-allowed; }
+.game-screen-status { text-align: center; font-weight: 600; color: var(--color-accent, #e0b84f); min-height: 1.2em; }

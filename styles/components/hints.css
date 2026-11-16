@@ -1,0 +1,45 @@
+/* HINTS.CSS — Tasks 116–117: the Hint button, the advice panel, the suggested tile / choice. */
+.game-screen-hint {
+  position: absolute; top: max(1rem, env(safe-area-inset-top)); left: calc(max(1rem, env(safe-area-inset-left)) + 5rem); z-index: 10;
+  padding: 0.45rem 0.9rem; border-radius: var(--radius-sm);
+  border: 1px solid rgba(95, 208, 168, 0.7); background: rgba(0, 0, 0, 0.35); color: #e6fff4; font-size: var(--fs-sm);
+}
+.game-screen-hint:hover:not(:disabled) { background: rgba(0, 0, 0, 0.55); border-color: #5fd0a8; }
+.game-screen-hint:disabled { opacity: 0.45; }
+.game-screen-hint[hidden] { display: none; }
+
+.game-screen-hint-panel {
+  position: absolute; top: 3.6rem; left: 50%; transform: translateX(-50%); z-index: 12;
+  width: min(30rem, calc(100% - 2rem)); padding: 0.75rem 2.4rem 0.75rem 1rem; border-radius: var(--radius-md);
+  background: rgba(12, 28, 22, 0.94); border: 1px solid #5fd0a8; color: #eef7f2; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  font-size: var(--fs-sm);
+}
+.game-screen-hint-panel[hidden] { display: none; }
+.game-screen-hint-headline { font-weight: var(--fw-semibold); }
+.game-screen-hint-detail { margin-top: 0.3rem; color: #c9ddd3; }
+.game-screen-hint-close { position: absolute; top: 0.35rem; right: 0.45rem; width: 1.8rem; height: 1.8rem; border: none; border-radius: 50%; background: transparent; color: #eef7f2; font-size: 1.2rem; line-height: 1; }
+.game-screen-hint-close:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* The suggested tile: a jade ring and a little "hint" tag above it. */
+.tile--hinted { box-shadow: 0 -3px 0 #c9b98f inset, 0 0 0 3px #5fd0a8, 0 0 16px 3px rgba(95, 208, 168, 0.7); }
+.tile--hinted::before {
+  content: "hint"; position: absolute; left: 50%; top: -1.35rem; transform: translateX(-50%);
+  padding: 0 0.4rem; border-radius: 999px; background: #5fd0a8; color: #0b1a14; font-size: 0.65rem; font-weight: var(--fw-bold); letter-spacing: var(--ls-wide); text-transform: uppercase; pointer-events: none;
+}
+
+/* Inside the Kong / Win / Riichi prompt. */
+.claim-prompt-btn--hint { background: transparent; border-style: dashed; color: var(--color-text-secondary); text-align: center; }
+.claim-prompt-btn--suggested { box-shadow: 0 0 0 2px #5fd0a8; }
+.claim-prompt-btn--suggested::after { content: "  ← suggested"; color: #5fd0a8; font-weight: var(--fw-semibold); }
+.claim-prompt-hint { padding: 0.6rem 0.75rem; border-radius: var(--radius-sm); background: var(--color-surface-hover); font-size: var(--fs-sm); }
+.claim-prompt-hint-headline { font-weight: var(--fw-semibold); }
+.claim-prompt-hint-detail { margin-top: 0.25rem; color: var(--color-text-secondary); }
+body[data-theme="light"] .claim-prompt-btn--suggested::after { color: #1f7a55; }
+
+@media (max-width: 34rem) {
+  .game-screen-hint { left: calc(max(1rem, env(safe-area-inset-left)) + 5rem); padding: 0.45rem 0.75rem; }
+  .game-screen-hint-panel { top: 3.3rem; }
+}
+@media (max-height: 30rem) and (orientation: landscape) {
+  .game-screen-hint-panel { top: 0.5rem; width: min(26rem, calc(100% - 15rem)); }
+}

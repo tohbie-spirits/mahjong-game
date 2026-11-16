@@ -1,0 +1,15 @@
+/* GAME-SCREEN.CSS — GameScreen chrome (Tasks 56, 66). Rebuilt after Task 77. */
+.game-screen { position: relative; min-height: 100dvh; }
+.game-screen-table { min-height: 100dvh; }
+.game-screen-overlay {
+  position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center;
+  padding: 1rem; background: var(--color-overlay);
+}
+.game-screen-overlay[hidden] { display: none; }
+.game-screen-quit, .game-screen-pause {
+  position: absolute; top: 1rem; z-index: 10; padding: 0.45rem 0.9rem; border-radius: var(--radius-sm);
+  border: 1px solid rgba(201, 162, 39, 0.6); background: rgba(0, 0, 0, 0.35); color: #f1ece2; font-size: var(--fs-sm);
+}
+.game-screen-quit { right: 1rem; }
+.game-screen-pause { left: 1rem; }
+.game-screen-quit:hover, .game-screen-pause:hover { background: rgba(0, 0, 0, 0.55); border-color: #ddb83c; }

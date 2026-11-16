@@ -1,0 +1,60 @@
+/* ============================================================
+   LAYOUT.CSS — the felt table grid (Task 43) and the centre
+   cross with per-seat discard areas + wall slot (Task 47).
+   Rebuilt after Task 77. The top discard area is turned 180°
+   so it reads from its owner's side; left/right stay upright
+   for legibility.
+   ============================================================ */
+
+.table {
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "top    top    top"
+    "left   center right"
+    "bottom bottom bottom";
+  grid-template-columns: minmax(7rem, 1fr) minmax(0, 3.2fr) minmax(7rem, 1fr);
+  grid-template-rows: auto minmax(min-content, 1fr) auto; /* Task 112: the centre grows (the page scrolls) rather than overlapping the seats */
+  gap: 0.75rem;
+  min-height: 100dvh;
+  padding: 3.5rem 1rem 1rem;
+  background:
+    radial-gradient(ellipse at center, var(--color-felt) 0%, var(--color-felt-dark) 100%);
+  box-shadow: inset 0 0 0 6px #6b4f1d, inset 0 0 0 9px var(--color-accent), inset 0 0 0 12px #6b4f1d;
+}
+
+.table-seat { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; min-width: 0; }
+.table-seat--bottom { grid-area: bottom; }
+.table-seat--top { grid-area: top; }
+.table-seat--left { grid-area: left; justify-content: center; }
+.table-seat--right { grid-area: right; justify-content: center; }
+.table-seat--bottom { flex-direction: column-reverse; }
+
+.table-seat-hand { display: flex; justify-content: center; max-width: 100%; border-radius: var(--radius-md); padding: 0.35rem; }
+.table-seat-label { min-height: 1.6rem; }
+
+.table-center { grid-area: center; display: flex; align-items: center; justify-content: center; min-height: 0; }
+.table-center-grid {
+  display: grid;
+  grid-template-areas:
+    ".     dtop   ."
+    "dleft wall   dright"
+    ".     dbot   .";
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr auto 1fr;
+  gap: 0.6rem;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+}
+.table-center-discard--bottom { grid-area: dbot; align-self: start; }
+.table-center-discard--top { grid-area: dtop; align-self: end; transform: rotate(180deg); }
+.table-center-discard--left { grid-area: dleft; justify-self: end; }
+.table-center-discard--right { grid-area: dright; justify-self: start; }
+.table-center-wall { grid-area: wall; display: flex; flex-direction: column; align-items: center; justify-content: center; } /* Task 102: wall counter + table info stacked */
+
+@media (max-width: 48rem) {
+  .table { grid-template-columns: minmax(4.5rem, 1fr) minmax(0, 2.4fr) minmax(4.5rem, 1fr); padding: 3.25rem 0.5rem 0.5rem; }
+}
+/* Task 112: phones, landscape phones, touch and big screens — see responsive.css. */

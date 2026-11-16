@@ -1,0 +1,19 @@
+/* WIN-REVEAL.CSS — Task 106: the winning-hand reveal (src/ui/WinReveal.js drives
+   the motion; this file only holds what CSS must provide). */
+
+/* Tiles flip up around their bottom edge, in 3D. */
+.winning-hand { perspective: 700px; }
+.winning-hand .tile { transform-origin: 50% 100%; backface-visibility: hidden; }
+.winning-hand-winning-tile .tile { transform-origin: 50% 50%; }
+
+/* The title grows from its centre; confetti bursts from just under it. */
+.score-screen { position: relative; }
+.score-screen-title { transform-origin: center; }
+.win-burst { position: absolute; left: 50%; top: 2.6rem; width: 0; height: 0; pointer-events: none; z-index: 1; }
+.win-burst-particle {
+  position: absolute; left: 0; top: 0; width: 0.5rem; height: 0.75rem; margin: -0.375rem 0 0 -0.25rem;
+  border-radius: 0.12rem; background: var(--color-accent); opacity: 0;
+}
+.win-burst-particle--1 { background: var(--color-celebration); width: 0.45rem; height: 0.45rem; border-radius: 50%; }
+.win-burst-particle--2 { background: #3fae86; }
+.win-burst-particle--3 { background: #f4ede0; height: 0.5rem; }

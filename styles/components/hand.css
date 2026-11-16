@@ -1,0 +1,10 @@
+/* HAND.CSS — HandRenderer output (Tasks 45, 46). Rebuilt after Task 77. */
+.hand { display: flex; align-items: flex-end; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+.hand-concealed { display: flex; gap: 0.12rem; flex-wrap: wrap; justify-content: center; }
+.hand-melds { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.hand-meld { display: flex; align-items: flex-end; gap: 0.06rem; padding: 0.15rem; border-radius: var(--radius-sm); background: rgba(0, 0, 0, 0.18); }
+.hand-meld--concealed { background: rgba(0, 0, 0, 0.28); }
+.hand--compact .hand-concealed { gap: 0.06rem; }
+.hand--compact { gap: 0.5rem; }
+.table-seat--left .hand--compact .hand-concealed,
+.table-seat--right .hand--compact .hand-concealed { max-width: 8.5rem; }

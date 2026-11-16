@@ -1,0 +1,11 @@
+/* Task 103 — shared animation styles (AnimationEngine.js drives the motion with
+   the Web Animations API; this file only holds what CSS must provide). */
+
+/* Set by AnimationEngine on an element while it animates. */
+.is-animating { will-change: transform, opacity; }
+
+/* Overlay cards animate from their centre. */
+.game-screen-overlay > * { transform-origin: center; }
+
+/* Task 105 — the face-down stand-in that flies to an opponent's hand when they draw. */
+.tile-ghost { box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35); }

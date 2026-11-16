@@ -1,0 +1,69 @@
+/* RULE-REFERENCE.CSS — Task 114: RuleReferenceScreen (full page, and embedded in the game's Pause → Rules overlay). */
+.rule-reference-screen { min-height: 100dvh; padding: 4.25rem 1.25rem 2.5rem; }
+.rule-reference { width: min(52rem, 100%); margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+.rule-reference-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.rule-reference-title { font-family: var(--font-display); font-size: var(--fs-2xl); }
+.rule-reference-back { padding: 0.55rem 1.2rem; border-radius: var(--radius-md); border: 1px solid var(--color-border-strong); background: transparent; color: var(--color-text-secondary); }
+.rule-reference-back:hover { border-color: var(--color-accent); color: var(--color-text-primary); }
+
+/* Ruleset tabs: a segmented control */
+.rule-reference-tabs { display: flex; gap: 0.3rem; padding: 0.3rem; border-radius: var(--radius-md); background: var(--color-surface); border: 1px solid var(--color-border); overflow-x: auto; }
+.rule-reference-tab { flex: 1 0 auto; padding: 0.55rem 0.9rem; border-radius: var(--radius-sm); border: none; background: transparent; color: var(--color-text-secondary); font-weight: var(--fw-semibold); white-space: nowrap; }
+.rule-reference-tab:hover { color: var(--color-text-primary); background: var(--color-surface-hover); }
+.rule-reference-tab--selected, .rule-reference-tab--selected:hover { background: var(--color-accent); color: var(--color-bg); }
+
+.rule-reference-panel { display: flex; flex-direction: column; gap: 1.25rem; outline: none; }
+.rule-reference-hero { padding: 1.25rem; border-radius: var(--radius-lg); background: var(--color-surface); border: 1px solid var(--color-border); }
+.rule-reference-ruleset { font-family: var(--font-display); font-size: var(--fs-xl); display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.6rem; }
+.rule-reference-native { color: var(--color-text-muted); font-size: 0.85em; font-weight: var(--fw-regular); font-family: var(--font-body); }
+.rule-reference-summary { margin-top: 0.4rem; color: var(--color-text-secondary); }
+.rule-reference-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 0.6rem; margin-top: 1rem; }
+.rule-reference-fact { padding: 0.55rem 0.7rem; border-radius: var(--radius-sm); background: var(--color-surface-hover); }
+.rule-reference-fact dt { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--color-text-muted); }
+.rule-reference-fact dd { margin: 0; font-weight: var(--fw-semibold); }
+
+.rule-reference-index { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.rule-reference-index-link { padding: 0.3rem 0.75rem; border-radius: 999px; border: 1px solid var(--color-border-strong); background: transparent; color: var(--color-text-secondary); font-size: var(--fs-sm); }
+.rule-reference-index-link:hover { border-color: var(--color-accent); color: var(--color-text-primary); }
+
+.rule-reference-section { display: flex; flex-direction: column; gap: 0.6rem; scroll-margin-top: 4.5rem; outline: none; }
+.rule-reference-section-title { font-size: var(--fs-lg); padding-bottom: 0.3rem; border-bottom: 1px solid var(--color-border); }
+.rule-reference-text { color: var(--color-text-primary); max-width: 46rem; }
+.rule-reference-list { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.35rem; max-width: 46rem; }
+.rule-reference-tiles { margin: 0.2rem 0; }
+.rule-reference-tile-row { display: flex; flex-wrap: wrap; gap: 0.12rem; }
+.rule-reference-caption { margin-top: 0.3rem; font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+.rule-reference-search { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.rule-reference-search-label { font-weight: var(--fw-semibold); font-size: var(--fs-sm); }
+.rule-reference-search-input { flex: 1 1 14rem; padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border-strong); background: var(--color-surface); }
+.rule-reference-search-input:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 1px; }
+.rule-reference-search-count { font-size: var(--fs-sm); color: var(--color-text-muted); font-family: var(--font-mono); }
+.rule-reference-scoring-body { display: flex; flex-direction: column; gap: 1rem; }
+.rule-reference-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.rule-reference-group { text-align: left; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: var(--ls-widest); color: var(--color-accent); padding-bottom: 0.3rem; }
+.rule-reference-row th, .rule-reference-row td { padding: 0.45rem 0; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+.rule-reference-row-name { text-align: left; font-weight: var(--fw-semibold); }
+.rule-reference-row-name .rule-reference-native { margin-left: 0.5rem; }
+.rule-reference-note { display: block; font-weight: var(--fw-regular); font-size: var(--fs-xs); color: var(--color-text-muted); }
+.rule-reference-row-value { text-align: right; font-family: var(--font-mono); white-space: nowrap; padding-left: 1rem; }
+.rule-reference-empty { color: var(--color-text-secondary); }
+.rule-reference-glossary-list { display: grid; grid-template-columns: minmax(8rem, max-content) 1fr; gap: 0.4rem 1rem; }
+.rule-reference-glossary-list dt { font-weight: var(--fw-semibold); }
+.rule-reference-glossary-list dt .rule-reference-native { display: block; }
+.rule-reference-glossary-list dd { margin: 0; color: var(--color-text-secondary); }
+
+/* Embedded in the game overlay (Pause → Rules): a scrolling card. */
+.rule-reference--embedded {
+  width: min(48rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); overflow-y: auto;
+  padding: 1.25rem; border-radius: var(--radius-lg); background: var(--color-bg); border: 1px solid var(--color-border);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+.rule-reference--embedded .rule-reference-head { position: sticky; top: -1.25rem; z-index: 1; margin: -1.25rem -1.25rem 0; padding: 1rem 1.25rem 0.75rem; background: var(--color-bg); }
+
+@media (max-width: 34rem) {
+  .rule-reference-screen { padding: 4rem 0.75rem 2rem; }
+  .rule-reference-glossary-list { grid-template-columns: 1fr; }
+  .rule-reference-glossary-list dd { margin-bottom: 0.4rem; }
+  .rule-reference-row-name .rule-reference-native { display: block; margin-left: 0; }
+}

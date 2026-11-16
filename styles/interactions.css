@@ -1,0 +1,55 @@
+/* ============================================================
+   INTERACTIONS.CSS — Task 107: hover / selection effects and
+   micro-interactions shared across the app. Script-driven motion
+   lives in AnimationEngine (shake, land, reveal); this file holds
+   the CSS-only feedback: press states, copy highlights, the
+   copy-count tip, the status toast.
+   ============================================================ */
+
+/* ── Buttons: a soft press everywhere ─────────────────────── */
+button { transition: transform 0.08s ease, background-color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease, color 0.12s ease; }
+button:not(:disabled):active { transform: translateY(1px) scale(0.985); }
+button:disabled { cursor: not-allowed; }
+
+/* Menu and picker cards lift a little more on hover and settle on press. */
+.main-menu-item:not(:disabled):hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25); }
+.rule-selection-card:not([disabled]):active,
+.player-count-selection-card:not([disabled]):active,
+.difficulty-selection-card:not([disabled]):active { transform: translateY(0) scale(0.99); }
+
+/* ── Tiles in your hand ───────────────────────────────────── */
+/* Pressing a discardable tile dips it before it flies away. */
+.tile--discardable:active { transform: translateY(-0.2rem) scale(0.96); transition-duration: 0.05s; }
+/* Hover feedback for locked tiles: no lift, a "not allowed" cursor (tile--locked lives in table-info.css). */
+.hand-concealed .tile--locked:hover { box-shadow: 0 -3px 0 #c9b98f inset, 0 0 0 2px rgba(208, 86, 74, 0.7); }
+
+/* ── Copies of the tile under the pointer (TableHighlights.js) ── */
+.tile--match {
+  box-shadow: 0 -2px 0 #c9b98f inset, 0 0 0 2px #5fd0a8, 0 0 12px 1px rgba(95, 208, 168, 0.65);
+  z-index: 1;
+}
+.tile--sm.tile--match { box-shadow: 0 -2px 0 #c9b98f inset, 0 0 0 2px #5fd0a8, 0 0 9px 1px rgba(95, 208, 168, 0.65); }
+/* The count over a tile in your hand: "2 held · 1 seen · 1 left". */
+.tile--counting::after {
+  content: attr(data-copies);
+  position: absolute; left: 50%; bottom: calc(100% + 0.45rem); transform: translateX(-50%);
+  padding: 0.15rem 0.5rem; border-radius: 999px; white-space: nowrap; pointer-events: none;
+  background: rgba(10, 14, 18, 0.88); color: #f1ece2; font-size: var(--fs-xs); font-weight: var(--fw-medium);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35); z-index: 5;
+}
+@media (hover: none) { .tile--counting::after { display: none; } }
+
+/* ── The status line: a toast at the top centre of the table ── */
+.game-screen-status {
+  position: absolute; top: 1rem; left: 50%; transform: translateX(-50%); z-index: 11;
+  max-width: calc(100% - 15rem); padding: 0.35rem 0.9rem; border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55); pointer-events: none; text-align: center; font-size: var(--fs-sm);
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+.game-screen-status:empty { opacity: 0; }
+.game-screen-status--flash { background: rgba(120, 32, 26, 0.85); color: #fff3ea; }
+
+/* ── The Animations setting also stills CSS transitions ───── */
+body[data-motion="off"] *,
+body[data-motion="off"] *::before,
+body[data-motion="off"] *::after { transition: none !important; animation: none !important; }

@@ -1,0 +1,61 @@
+/* TUTORIAL.CSS — Task 113: TutorialScreen (the How to Play walkthrough). */
+.tutorial-screen { min-height: 100dvh; padding: 4.25rem 1.25rem 2.5rem; background: radial-gradient(ellipse at top, var(--color-surface) 0%, var(--color-bg) 70%); }
+.tutorial { width: min(46rem, 100%); margin: 0 auto; display: flex; flex-direction: column; gap: 0.9rem; }
+.tutorial-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.tutorial-progress { font-size: var(--fs-sm); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-text-muted); }
+.tutorial-exit { padding: 0.45rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border-strong); background: transparent; color: var(--color-text-secondary); font-size: var(--fs-sm); }
+.tutorial-exit:hover { border-color: var(--color-accent); color: var(--color-text-primary); }
+
+.tutorial-dots { display: flex; gap: 0.4rem; }
+.tutorial-dot { flex: 1; height: 0.4rem; min-width: 1rem; padding: 0; border: none; border-radius: 999px; background: var(--color-border-strong); }
+.tutorial-dot--done { background: rgba(201, 162, 39, 0.55); }
+.tutorial-dot--current { background: var(--color-accent); }
+.tutorial-dot:hover { background: var(--color-accent-hover); }
+
+.tutorial-card { display: flex; flex-direction: column; gap: 0.85rem; padding: 1.5rem; border-radius: var(--radius-lg); background: var(--color-surface); border: 1px solid var(--color-border); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3); outline: none; }
+.tutorial-title { font-family: var(--font-display); font-size: var(--fs-2xl); line-height: 1.2; }
+.tutorial-text { color: var(--color-text-primary); }
+.tutorial-list { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; }
+
+.tutorial-example { margin: 0.2rem 0; }
+.tutorial-groups { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.tutorial-group { display: flex; gap: 0.08rem; padding: 0.2rem; border-radius: var(--radius-sm); background: rgba(0, 0, 0, 0.18); }
+.tutorial-caption { margin-top: 0.35rem; font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+.tutorial-exercise { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 0.4rem; padding: 1rem; border-radius: var(--radius-md); background: var(--color-surface-hover); border: 1px solid var(--color-border); }
+.tutorial-exercise-title { font-size: var(--fs-xs); letter-spacing: var(--ls-widest); text-transform: uppercase; color: var(--color-accent); }
+.tutorial-prompt { font-weight: var(--fw-semibold); }
+.tutorial-subprompt { font-size: var(--fs-sm); color: var(--color-text-secondary); }
+.tutorial-tiles { display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.5rem 0 0.2rem; }
+.tutorial-tile--picked { transform: translateY(-0.45rem); box-shadow: 0 -3px 0 #c9b98f inset, 0 0 0 2px var(--color-accent), 0 8px 14px rgba(0, 0, 0, 0.4); }
+.tutorial-exercise-actions, .tutorial-choices, .tutorial-finish-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tutorial-choices { flex-direction: column; align-items: stretch; }
+.tutorial-feedback { min-height: 1.5em; font-weight: var(--fw-medium); }
+.tutorial-feedback:empty { display: none; }
+.tutorial-feedback--right { color: #6fd3a8; }
+.tutorial-feedback--wrong { color: var(--color-warning); }
+.tutorial-answer--picked { border-color: var(--color-accent); }
+
+.tutorial-btn { padding: 0.6rem 1.25rem; border-radius: var(--radius-md); font-weight: var(--fw-semibold); }
+.tutorial-btn--primary { background: var(--color-accent); border: 1px solid var(--color-accent); color: var(--color-bg); }
+.tutorial-btn--primary:hover:not(:disabled) { background: var(--color-accent-hover); }
+.tutorial-btn--primary:disabled { opacity: 0.5; }
+.tutorial-btn--secondary { background: transparent; border: 1px solid var(--color-border-strong); color: var(--color-text-primary); text-align: left; }
+.tutorial-btn--secondary:hover:not(:disabled) { border-color: var(--color-accent); }
+.tutorial-btn--secondary:disabled { opacity: 0.4; }
+.tutorial-btn--ghost { background: transparent; border: 1px solid transparent; color: var(--color-text-secondary); text-decoration: underline; }
+.tutorial-nav { display: flex; justify-content: space-between; gap: 0.6rem; }
+.tutorial-nav .tutorial-btn { min-width: 7rem; text-align: center; }
+.tutorial-nav .tutorial-btn[hidden] { display: none; }
+.tutorial-finish { display: flex; flex-direction: column; gap: 0.8rem; }
+.tutorial-score { color: var(--color-text-secondary); }
+
+body[data-theme="light"] .tutorial-feedback--right { color: #1f7a55; }
+
+@media (max-width: 34rem) {
+  .tutorial-screen { padding: 4rem 0.6rem 1.5rem; }
+  .tutorial-card { padding: 1rem; }
+  .tutorial-title { font-size: var(--fs-xl); }
+  .tutorial-tiles .tile { --tile-w: 2.15rem; --tile-h: 2.87rem; }
+  .tutorial-finish-actions .tutorial-btn { width: 100%; text-align: center; }
+}

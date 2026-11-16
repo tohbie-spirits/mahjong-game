@@ -1,0 +1,21 @@
+/* PAUSE-MENU.CSS — PauseMenu (Task 66). Rebuilt after Task 77. */
+.pause-menu {
+  display: flex; flex-direction: column; align-items: center; gap: 2rem;
+  width: min(22rem, calc(100vw - 3rem)); padding: 2rem 1.5rem;
+  border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+.pause-menu-title { font-family: var(--font-display); font-size: var(--fs-2xl); }
+.pause-menu-actions { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; }
+.pause-menu-btn { width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-md); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: var(--ls-wide); }
+.pause-menu-btn--primary { background: var(--color-accent); border: 1px solid var(--color-accent); color: var(--color-bg); }
+.pause-menu-btn--primary:hover { background: var(--color-accent-hover); }
+.pause-menu-btn--secondary { background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent); }
+.pause-menu-btn--secondary:hover { background: var(--color-surface-hover); }
+/* Task 115 — keyboard shortcuts */
+.pause-menu-keys { width: 100%; border-top: 1px solid var(--color-border); padding-top: 1rem; }
+.pause-menu-keys-title { font-size: var(--fs-xs); letter-spacing: var(--ls-widest); text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+.pause-menu-keys-list { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 0.8rem; font-size: var(--fs-sm); }
+.pause-menu-keys-list dd { margin: 0; color: var(--color-text-secondary); }
+.pause-menu-keys-list kbd { display: inline-block; min-width: 1.5rem; padding: 0.05rem 0.4rem; border-radius: 0.3rem; border: 1px solid var(--color-border-strong); border-bottom-width: 2px; font-family: var(--font-mono); font-size: var(--fs-xs); text-align: center; }
+.pause-menu { max-height: calc(100dvh - 2rem); overflow-y: auto; } /* Task 115: the shortcut list fits short screens */
+@media (max-height: 34rem) { .pause-menu { gap: 1rem; padding: 1.25rem; } }

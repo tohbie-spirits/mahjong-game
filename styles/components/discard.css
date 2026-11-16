@@ -1,0 +1,10 @@
+/* DISCARD.CSS — DiscardPileRenderer output (Task 47). Rebuilt after Task 77.
+   Task 112: the pile is a grid whose column count comes from --discard-cols
+   (default 6, the renderer's row length), so responsive.css can give the
+   side piles narrow columns on phones and the top / bottom piles wide rows
+   in landscape. The renderer's .discard-row wrappers dissolve into the grid. */
+.discard-pile {
+  display: grid; grid-template-columns: repeat(var(--discard-cols, 6), max-content);
+  gap: 0.12rem; align-content: start; justify-content: start; min-height: var(--tile-h-sm);
+}
+.discard-row { display: contents; }

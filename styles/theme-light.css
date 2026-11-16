@@ -1,0 +1,20 @@
+/* THEME-LIGHT.CSS — light colour tokens (rebuilt after Task 77). */
+body[data-theme="light"] {
+  --color-bg: #f4efe3;
+  --color-surface: #fffaf0;
+  --color-surface-hover: #f1e8d6;
+  --color-border: #ddd2bb;
+  --color-border-strong: #c7b996;
+  --color-text-primary: #1f1b14;
+  --color-text-secondary: #4a4232;
+  --color-text-muted: #645b47;   /* Task 115: was #7c725c */
+  --color-accent: #7d5d0e;       /* Task 115: was #9a7414 — text and button fills reach 4.5:1 */
+  --color-accent-hover: #93700f;
+  --color-celebration: #b03a2e;
+  --color-warn: #b03a2e;
+  --color-warning: #835a08;      /* Task 115: was #b07a12 */
+  --color-felt: #2e7a5e;
+  --color-felt-dark: #1f5a45;
+  --color-overlay: rgba(40, 30, 10, 0.45);
+  color-scheme: light;
+}

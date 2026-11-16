@@ -1,0 +1,21 @@
+/* THEME-DARK.CSS — default colour tokens (rebuilt after Task 77). */
+:root,
+body[data-theme="dark"] {
+  --color-bg: #0f1216;
+  --color-surface: #181d24;
+  --color-surface-hover: #212833;
+  --color-border: #2b3340;
+  --color-border-strong: #3a4554;
+  --color-text-primary: #f1ece2;
+  --color-text-secondary: #c2bba9;
+  --color-text-muted: #a19c8b;          /* Task 115: was #8b8676 — 4.5:1 on every surface */
+  --color-accent: #c9a227;          /* brass */
+  --color-accent-hover: #ddb83c;
+  --color-celebration: #d0564a;     /* lacquer red */
+  --color-warn: #d0564a;
+  --color-warning: #e0a63a;
+  --color-felt: #1b5a45;
+  --color-felt-dark: #123d30;
+  --color-overlay: rgba(6, 9, 12, 0.66);
+  color-scheme: dark;
+}

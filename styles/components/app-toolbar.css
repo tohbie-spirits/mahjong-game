@@ -1,0 +1,22 @@
+/* APP-TOOLBAR.CSS — Tasks 110–111: Sound / Fullscreen buttons, top right on every screen. */
+:root { --app-toolbar-w: 5.4rem; }
+.app-toolbar {
+  position: fixed; top: 1rem; right: 1rem; z-index: 30;
+  display: flex; gap: 0.4rem;
+}
+.app-toolbar:empty { display: none; }
+.app-toolbar-btn {
+  display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; padding: 0;
+  border-radius: var(--radius-sm); border: 1px solid rgba(201, 162, 39, 0.6);
+  background: rgba(0, 0, 0, 0.35); color: #f1ece2;
+}
+.app-toolbar-btn:hover { background: rgba(0, 0, 0, 0.55); border-color: #ddb83c; }
+.app-toolbar-btn[aria-pressed="true"].app-toolbar-btn--sound { color: #e8a39a; border-color: rgba(208, 86, 74, 0.7); }
+.app-toolbar-icon, .app-toolbar-label { pointer-events: none; } /* the button is always the click target */
+.app-toolbar-icon { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.app-toolbar-btn--sound .app-toolbar-icon path:first-child { fill: currentColor; fill-opacity: 0.25; }
+.app-toolbar-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+body[data-theme="light"] .app-toolbar-btn { background: rgba(255, 255, 255, 0.75); color: #2a2620; }
+
+/* The table's Quit button moves left of the toolbar. */
+.game-screen-quit { right: calc(1rem + var(--app-toolbar-w) + 0.5rem); }

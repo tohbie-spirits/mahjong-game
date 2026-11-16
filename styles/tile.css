@@ -1,0 +1,40 @@
+/* ============================================================
+   TILE.CSS — the ivory tile card (Task 44), theme-independent.
+   Rebuilt after Task 77.
+   ============================================================ */
+
+.tile {
+  position: relative;
+  flex: none;
+  width: var(--tile-w);
+  height: var(--tile-h);
+  padding: 0.14rem;
+  border-radius: 0.35rem;
+  background: linear-gradient(160deg, #fffdf6 0%, #f1e9d6 70%, #e3d6b8 100%);
+  box-shadow: 0 1px 0 #fff inset, 0 -3px 0 #c9b98f inset, 0 2px 4px rgba(0, 0, 0, 0.35);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.tile .tile-svg { width: 100%; height: 100%; }
+.tile--sm { width: var(--tile-w-sm); height: var(--tile-h-sm); padding: 0.1rem; border-radius: 0.25rem; box-shadow: 0 -2px 0 #c9b98f inset, 0 1px 2px rgba(0, 0, 0, 0.35); }
+.tile--lg { width: calc(var(--tile-w) * 1.3); height: calc(var(--tile-h) * 1.3); }
+
+.tile--back { background: #1f6b52; box-shadow: 0 -3px 0 #134a39 inset, 0 2px 4px rgba(0, 0, 0, 0.35); }
+
+/* Interactive (click-to-discard) — reserved since Task 44, used from Task 50.
+   Task 115: keyed on .tile--discardable (every hand tile now has a tabindex — roving focus). */
+.tile--discardable, .tutorial-tile { cursor: pointer; outline: none; }
+.tile--discardable:hover, .tutorial-tile:hover,
+.tile--discardable:focus-visible, .tutorial-tile:focus-visible { transform: translateY(-0.45rem); box-shadow: 0 -3px 0 #c9b98f inset, 0 8px 14px rgba(0, 0, 0, 0.45), 0 0 0 2px var(--color-accent); }
+
+.tile--claimed { transform: rotate(90deg); margin: 0 calc((var(--tile-h) - var(--tile-w)) / 2); }
+.tile--sm.tile--claimed { margin: 0 calc((var(--tile-h-sm) - var(--tile-w-sm)) / 2); }
+.tile--latest { box-shadow: 0 -2px 0 #c9b98f inset, 0 0 0 2px var(--color-accent); }
+.tile--winning { box-shadow: 0 -2px 0 #c9b98f inset, 0 0 0 2px var(--color-accent), 0 0 12px 2px rgba(201, 162, 39, 0.75); }
+.tile--drawn { margin-left: 0.6rem; }
+/* Task 115: a locked tile reached with the keyboard still shows where focus is. */
+.tile--locked:focus-visible { outline: 2px dashed var(--color-warning); outline-offset: 2px; }
+
+/* Narrow screens: smaller tiles so a 14-tile hand fits on two rows (full responsive pass: Task 112). */
+@media (max-width: 30rem) {
+  :root { --tile-w: 2.05rem; --tile-h: 2.73rem; --tile-w-sm: 1.3rem; --tile-h-sm: 1.73rem; }
+}
